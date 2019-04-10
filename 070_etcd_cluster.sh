@@ -41,6 +41,8 @@ etcd:
 EOF
 done
 
+rm -rf /etc/kubernetes/*
+
 kubeadm init phase certs etcd-ca
 
 kubeadm init phase certs etcd-server --config=/tmp/${HOST2}/kubeadmcfg.yaml
