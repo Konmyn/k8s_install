@@ -5,10 +5,7 @@ set -o nounset
 set -o pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"   )" >/dev/null 2>&1 && pwd   )"
-cd $DIR
-
-cp sendfile.sh workspace
-cp change_ip.sh workspace
+cd $DIR/..
 
 tar -cvf install.tar workspace
 
