@@ -1,0 +1,5 @@
+ansible/
+docker/
+kubeadm/
+kubeadm_images/
+pre_docker/
