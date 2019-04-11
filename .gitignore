@@ -3,3 +3,4 @@ docker/
 kubeadm/
 kubeadm_images/
 pre_docker/
+*.log
