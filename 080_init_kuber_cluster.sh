@@ -7,7 +7,7 @@ set -o pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"    )" >/dev/null 2>&1 && pwd    )"
 cd $DIR
 
-rm /etc/systemd/system/kubelet.service.d/20-etcd-service-manager.conf
+rm -f /etc/systemd/system/kubelet.service.d/20-etcd-service-manager.conf
 systemctl daemon-reload && systemctl restart kubelet
 sleep 5
 kubeadm init --config kubeadm-config.yaml --experimental-upload-certs --ignore-preflight-errors="FileAvailable--etc-kubernetes-manifests-etcd.yaml" > admin-init.log
