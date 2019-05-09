@@ -1,7 +1,7 @@
-quay.io/coreos/prometheus-operator:v0.29.0
 docker.io/grafana/grafana:6.0.0-beta1
+quay.io/coreos/prometheus-operator:v0.29.0
 quay.io/coreos/kube-rbac-proxy:v0.4.1
 quay.io/coreos/kube-state-metrics:v1.5.0
-gcr.io/google-containers/addon-resizer-amd64:2.1
 quay.io/prometheus/node-exporter:v0.17.0
 quay.io/coreos/k8s-prometheus-adapter-amd64:v0.4.1
+gcr.io/google-containers/addon-resizer-amd64:2.1
