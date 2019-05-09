@@ -1,14 +1,14 @@
 #! /bin/bash
 
-set -o errexit
-set -o nounset
-set -o pipefail
+# set -o errexit
+# set -o nounset
+# set -o pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $DIR
 
 if [ `id -u` -ne 0 ]; then
-	echo "please run as root!"
+	  echo "please run as root!"
 fi
 
 # pre check
@@ -69,13 +69,13 @@ rpm -iUv kubeadm/*.rpm
 systemctl enable --now kubelet
 
 # load images
-gunzip -c kubeadm_images/images.tar.gz | docker load
-gunzip -c calico/calico_images.tar.gz | docker load
-gunzip -c dashboard/dashboard_images.tar.gz | docker load
-gunzip -c local-storage/local-store-images.tar.gz | docker load
-gunzip -c prometheus/promotheus-images.tar.gz | docker load
+gunzip -c docker-images/kubeadm-image.tar.gz | docker load
+gunzip -c docker-images/calico-image.tar.gz | docker load
+gunzip -c docker-images/dashboard-image.tar.gz | docker load
+gunzip -c docker-images/local-storage-image.tar.gz | docker load
+gunzip -c docker-images/prometheus-image.tar.gz | docker load
 
-# mount test point for local volume
+# mount test disk for local volume
 mkdir /mnt/disks
 for vol in vol1; do
     mkdir /mnt/disks/$vol
@@ -83,18 +83,3 @@ for vol in vol1; do
 done
 
 # todo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

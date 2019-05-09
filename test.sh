@@ -18,10 +18,32 @@
 # the commands in `hack/`.  When running in the build container the user is sure
 # to have a consistent reproducible build environment.
 
-set -o errexit
-set -o nounset
-set -o pipefail
+#! /bin/bash
 
-echo $1
-echo $2
-echo $3
+#set -o errexit
+#set -o nounset
+#set -o pipefail
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd $DIR
+
+if [ `id -u` -ne 0 ]; then
+	echo "please run as root!"
+fi
+
+HOSTIP=(
+    "192.168.28.90"
+    "192.168.28.91"
+    "192.168.28.92"
+    "192.168.28.93"
+    "192.168.28.94"
+)
+HOSTNAME=(
+    "n00"
+    "n01"
+    "n02"
+    "n03"
+    "n04"
+)
+
+echo "${HOSTIP[3]}:6443"
