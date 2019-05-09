@@ -73,6 +73,7 @@ gunzip -c kubeadm_images/images.tar.gz | docker load
 gunzip -c calico/calico_images.tar.gz | docker load
 gunzip -c dashboard/dashboard_images.tar.gz | docker load
 gunzip -c local-storage/local-store-images.tar.gz | docker load
+gunzip -c prometheus/promotheus-images.tar.gz | docker load
 
 # mount test point for local volume
 mkdir /mnt/disks
