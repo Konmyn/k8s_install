@@ -7,5 +7,5 @@ set -o pipefail
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"    )" >/dev/null 2>&1 && pwd    )"
 cd $DIR
 
-kubectl apply -f dashboard/kubernetes-dashboard.yaml
+gunzip -c local-storage/local-store-images.tar.gz | docker load
 
