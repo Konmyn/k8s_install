@@ -15,15 +15,11 @@ HOSTIP=(
     "192.168.28.90"
     "192.168.28.91"
     "192.168.28.92"
-    "192.168.28.93"
-    "192.168.28.94"
 )
 HOSTNAME=(
     "n00"
     "n01"
     "n02"
-    "n03"
-    "n04"
 )
 
 ## install ansible
@@ -73,6 +69,9 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # install calico network
 kubectl apply -f calico/calico.yaml
 
+# coredns bugfix
+kubectl apply -f bugfix/coredns-configmap.yaml
+
 # install dashboard
 kubectl apply -f dashboard/kubernetes-dashboard.yaml
 kubectl apply -f dashboard/admin-user.yaml
@@ -93,3 +92,4 @@ kubectl create -f prometheus/manifests/
 until kubectl get customresourcedefinitions servicemonitors.monitoring.coreos.com ; do date; sleep 1; echo ""; done
 until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
 kubectl apply -f prometheus/manifests/ # This command sometimes may need to be done twice (to workaround a race condition).
+

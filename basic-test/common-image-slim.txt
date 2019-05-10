@@ -1,0 +1,8 @@
+centos:centos7.5.1804
+nginx:1.15.12
+alpine:3.9.2
+ubuntu:18.04
+busybox:1.28.4
+mysql:5.7.25
+python:3.7.2-stretch
+openjdk:8u212-jdk-stretch

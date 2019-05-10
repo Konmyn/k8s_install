@@ -74,6 +74,7 @@ gunzip -c docker-images/calico-image.tar.gz | docker load
 gunzip -c docker-images/dashboard-image.tar.gz | docker load
 gunzip -c docker-images/local-storage-image.tar.gz | docker load
 gunzip -c docker-images/prometheus-image.tar.gz | docker load
+gunzip -c docker-images/common-image-slim.tar.gz | docker load
 
 # mount test disk for local volume
 mkdir /mnt/disks
