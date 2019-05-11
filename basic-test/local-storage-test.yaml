@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: local-storage-test
+spec:
+  selector:
+    matchLabels:
+      app: busybox
+      usage: local-storage
+  serviceName: local-storage-test
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: busybox
+        usage: local-storage
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:1.28.4
+        command:
+        - sleep
+        - "3600"
+        volumeMounts:
+        - name: local
+          mountPath: /app/data
+  volumeClaimTemplates:
+  - metadata:
+      name: local
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      storageClassName: local-storage
+      resources:
+        requests:
+          storage: 10Mi
+
