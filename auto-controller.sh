@@ -12,18 +12,14 @@ if [ `id -u` -ne 0 ]; then
 fi
 
 HOSTIP=(
-    "192.168.28.90"
-    "192.168.28.91"
-    "192.168.28.92"
+    "192.168.1.37"
 )
 HOSTNAME=(
-    "n00"
-    "n01"
-    "n02"
+    "kuberdap01"
 )
 
 ## install ansible
-rpm -iUv ansible/*.rpm
+rpm -iUvh --force ansible/*.rpm
 ls -alh /etc/ansible/
 
 # init ansible

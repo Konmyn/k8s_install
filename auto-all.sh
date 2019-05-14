@@ -29,8 +29,8 @@ grep 'swap' /etc/fstab | grep '#' || sed -i '/swap/s/^/#/' /etc/fstab
 sysctl --system
 
 # install docker
-rpm -iUv pre_docker/*.rpm
-rpm -iUv docker/*.rpm
+rpm -iUvh --force pre_docker/*.rpm
+rpm -iUvh --force docker/*.rpm
 
 systemctl enable docker
 
@@ -65,7 +65,7 @@ systemctl restart docker
 # Set SELinux in permissive mode (effectively disabling it)
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
-rpm -iUv kubeadm/*.rpm
+rpm -iUvh --force kubeadm/*.rpm
 systemctl enable --now kubelet
 
 # load images
