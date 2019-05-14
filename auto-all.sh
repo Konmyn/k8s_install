@@ -72,15 +72,15 @@ systemctl enable --now kubelet
 gunzip -c docker-images/kubeadm-image.tar.gz | docker load
 gunzip -c docker-images/calico-image.tar.gz | docker load
 gunzip -c docker-images/dashboard-image.tar.gz | docker load
-gunzip -c docker-images/local-storage-image.tar.gz | docker load
-gunzip -c docker-images/prometheus-image.tar.gz | docker load
-gunzip -c docker-images/common-image-slim.tar.gz | docker load
+# gunzip -c docker-images/local-storage-image.tar.gz | docker load
+# gunzip -c docker-images/prometheus-image.tar.gz | docker load
+# gunzip -c docker-images/common-image-slim.tar.gz | docker load
 
 # mount test disk for local volume
-mkdir /mnt/disks
-for vol in vol1; do
-    mkdir /mnt/disks/$vol
-    mount -t tmpfs $vol /mnt/disks/$vol
-done
+# mkdir /mnt/disks
+# for vol in vol1; do
+#     mkdir /mnt/disks/$vol
+#     mount -t tmpfs $vol /mnt/disks/$vol
+# done
 
 # todo

@@ -79,13 +79,13 @@ echo ""
 kubectl -n kube-system describe secret $(kubectl -n kube-system describe serviceaccount admin | grep -i tokens | awk '{print $2}') | grep token: | awk '{print $2}'
 
 # install local storage volume
-kubectl apply -f local-storage/storageclass.yaml
-kubectl apply -f local-storage/provisioner-generated.yaml
+# kubectl apply -f local-storage/storageclass.yaml
+# kubectl apply -f local-storage/provisioner-generated.yaml
 
 # install prometheus
-kubectl create -f prometheus/manifests/
+# kubectl create -f prometheus/manifests/
 # It can take a few seconds for the above 'create manifests' command to fully create the following resources, so verify the resources are ready before proceeding.
-until kubectl get customresourcedefinitions servicemonitors.monitoring.coreos.com ; do date; sleep 1; echo ""; done
-until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
-kubectl apply -f prometheus/manifests/ # This command sometimes may need to be done twice (to workaround a race condition).
+# until kubectl get customresourcedefinitions servicemonitors.monitoring.coreos.com ; do date; sleep 1; echo ""; done
+# until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
+# kubectl apply -f prometheus/manifests/ # This command sometimes may need to be done twice (to workaround a race condition).
 
